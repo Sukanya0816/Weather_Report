@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import { WeatherReportComponent } from './report/report.component';
+import { WeatherDataComponent } from './Components/weather-data/weather-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherReportComponent
+    WeatherReportComponent,
+    WeatherDataComponent
   ],
   imports: [
     BrowserModule,
