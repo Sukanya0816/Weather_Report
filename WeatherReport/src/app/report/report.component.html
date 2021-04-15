@@ -1,0 +1,38 @@
+<div>
+    <span class="p-float-label">
+        <h2>Weather in Your City</h2>
+        <input id="float-input" type="text" pInputText placeholder="Enter your Location" [(ngModel)] ="city">
+        <button pButton pRipple type="button" label="Search" class="p-button-info" (click)="onSearch()"></button>
+    </span>
+    <div class="card" *ngFor="let arr of topReports; let j = index">
+        <p-table [value]="topReports" styleClass="p-datatable-gridlines">
+            <ng-template pTemplate="caption">
+               <th class="p-datatable"> Date:{{arr.dt_txt | date: 'dd-MM-yyyy'}}</th>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th colspan="2">Temperature</th>
+                </tr>
+                <tr>
+                    <th>Min</th>
+                    <th>Max</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-i="rowIndex">
+                <tr *ngIf="j===i">
+                    <td>{{arr.main.temp_min}}</td>
+                    <td>{{arr.main.temp_max}}</td>
+                </tr>
+                <tr *ngIf="j===i"> 
+                    <td>Pressure</td>
+                    <td>{{arr.main.pressure}}</td>
+                </tr>
+                <tr *ngIf="j===i">
+                    <td>Humidity</td>
+                    <td>{{arr.main.humidity}}</td>
+                </tr>
+           </ng-template>
+        </p-table>
+    </div>
+    
+    </div>
