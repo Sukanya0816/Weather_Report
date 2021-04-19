@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
 
+
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -9,19 +11,29 @@ import * as _ from 'lodash';
 })
 export class WeatherReportComponent implements OnInit {
   weatherReport:any
-  report:any
-  topReports:any
+  report=[]
   city:any
+  date:any
   constructor(private weather: WeatherService) { }
  
   ngOnInit(): void {
   }
-  
   onSearch(){
     this.weather.getWeather(this.city).subscribe(data =>{this.weatherReport = data
-    this.report = data.list
-    this.topReports = this.report.slice(0, 5);
+     _.forEach(data.list, (x)=> {
+      let secondDate=new Date(x.dt_txt)
+      if(secondDate.getHours()==21){
+        this.report.push({
+          date: x.dt_txt,
+          tempmin: x.main.temp_min,
+          tempmax: x.main.temp_max,
+          pressure: x.main.pressure,
+          humidity: x.main.humidity,
+      })
+    }
+    })
   })
+  }
 }
     
-}
+
