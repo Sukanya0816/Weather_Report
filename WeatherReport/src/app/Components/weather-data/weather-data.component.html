@@ -1,9 +1,9 @@
 <div class="card" *ngFor="let arr of report; let j = index">
     <p-table [value]="report" styleClass="p-datatable-gridlines">
-        <ng-template pTemplate="caption">
-           <th class="p-datatable"> Date:{{arr.date | date: 'dd-MM-yyyy'}}</th>
-        </ng-template>
         <ng-template pTemplate="header">
+            <tr>
+                <th colspan="2" class="p-datatable">Date:{{arr.date | date: 'dd-MM-yyyy'}}</th>
+            </tr>
             <tr>
                 <th colspan="2">Temperature</th>
             </tr>
