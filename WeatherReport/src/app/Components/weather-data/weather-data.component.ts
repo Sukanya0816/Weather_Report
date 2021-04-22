@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WeatherDataComponent implements OnInit {
 
- @Input('parentData') report:any
+ @Input('parentData') details:any
 
   constructor() { }
 
