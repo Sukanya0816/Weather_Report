@@ -1,5 +1,5 @@
-<div class="card" *ngFor="let arr of details; let j = index">
-    <p-table [value]="details" styleClass="p-datatable-gridlines">
+<div class="card" *ngFor="let arr of values; let j = index">
+    <p-table [value]="values" styleClass="p-datatable-responsive-demo">
         <ng-template pTemplate="header">
             <tr>
                 <th colspan="2" class="p-datatable">Date:{{arr.date | date: 'dd-MM-yyyy'}}</th>

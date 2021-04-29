@@ -4,5 +4,5 @@
         <input id="float-input" type="text" pInputText  (keyup.enter)="onSearch()" placeholder="Enter your Location" [(ngModel)] ="city">
         <button pButton pRipple type="button" label="Search" class="p-button-info"  (click)="onSearch()"></button>
     </span>
-    <app-weather-data [parentData]="details"></app-weather-data>
+    <app-weather-data [parentData]="values"></app-weather-data>
 </div>
